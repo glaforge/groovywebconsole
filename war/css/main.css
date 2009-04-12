@@ -1,0 +1,31 @@
+body, h1, h2, h3, h4, p {
+	font-family: Arial ;
+}
+
+.border {
+	background-color: #FAFAFF;
+	border: 1px solid gray;
+}
+
+.hidden {
+	display: none;
+}
+
+#textarea-container {
+	background-position: 98% top;
+	background-repeat: no-repeat;
+	background-image: url('../images/google-app-engine-groovy.png');
+}
+
+#button-bar {
+	padding: 5px;
+}
+
+.CodeMirror-line-numbers {
+	color: gray;
+	background-color: lightgray;
+	padding: 5px;
+	margin-right: 5px;
+	font-family: monospace;
+	font-size: 10pt;
+}
