@@ -25,13 +25,13 @@ try {
 response.contentType = "application/json"
 
 out.println """{
-	executionResult: "${jsMultiline(result)}",
- 	outputText: "${jsMultiline(output)}",
- 	stacktraceText: "${jsMultiline(stacktrace) ?: ''}"
+	executionResult: "${escape(result)}",
+ 	outputText: "${escape(output)}",
+ 	stacktraceText: "${escape(stacktrace)}"
 }"""
 
-def jsMultiline(object) {
-	object.toString().replaceAll(/\n/, /\\\n/)
+def escape(object) {
+	object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/)
 }
 
 def sanitizeStacktrace(t) {
