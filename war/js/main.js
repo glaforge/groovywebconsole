@@ -10,7 +10,12 @@ $(document).ready(function() {
 		    url: "executor.groovy",
 		    data: { script: editor.getCode() },
 			dataType: "json",
-		    success: function(data) {				
+			
+		    success: function(data) {
+				$('#output').text("");
+				$('#result').text("");
+				$('#stacktrace').text("");
+				
 				if (data.outputText.length > 0) {
 					$("#tabs").tabs('select', 1);
 					$('#output').text(data.outputText).fadeIn();
@@ -33,8 +38,12 @@ $(document).ready(function() {
 				} else {
 					$('#stacktrace').fadeOut();
 				}
-				
-		    }
+		    },
+
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				alert("Error interacting with the Groovy web console server: " + errorThrown);
+			}
+
 		});
     });
 
