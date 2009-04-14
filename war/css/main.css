@@ -1,5 +1,13 @@
-body, h1, h2, h3, h4, p {
+body {
 	font-family: Arial ;
+	margin: 0px;
+}
+
+h1 {
+	background: #5C9CCC url('../css/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png') repeat-x scroll 50% 50%;
+	padding: 5px;
+	margin: 0px;
+	color: white;
 }
 
 .border {
@@ -12,13 +20,22 @@ body, h1, h2, h3, h4, p {
 }
 
 #textarea-container {
-	background-position: 98% top;
+	background-position: 98% bottom;
 	background-repeat: no-repeat;
 	background-image: url('../images/google-app-engine-groovy.png');
+	margin-bottom: 10px;
 }
 
 #button-bar {
 	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#loadingDiv {
+	position: fixed;
+	background-color: white;
+	right: 10px;
+	top: 12px;
 }
 
 .CodeMirror-line-numbers {
@@ -28,4 +45,17 @@ body, h1, h2, h3, h4, p {
 	margin-right: 5px;
 	font-family: monospace;
 	font-size: 10pt;
+}
+
+.ui-tabs .ui-tabs-hide {
+    display: none;
+}
+
+.ui-tabs .ui-tabs-panel {
+	padding: 2px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding: 2px 4px 2px 4px;
+	font-size: smaller;
 }

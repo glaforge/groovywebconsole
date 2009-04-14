@@ -31,6 +31,9 @@ var JSParser = Editor.Parser = (function() {
   // My favourite JavaScript indentation rules.
   function indentJS(lexical) {
     return function(firstChars) {
+	  // Groovy: no indent at all, as the JavaScript indentation is broken with Groovy
+	  return 0;
+	
       var firstChar = firstChars && firstChars.charAt(0), type = lexical.type;
       var closing = firstChar == type;
       if (type == "vardef")
