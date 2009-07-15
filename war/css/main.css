@@ -19,6 +19,13 @@ h1 {
 	display: none;
 }
 
+#footer {
+    position: absolute;
+    right: 20px;
+    font-size: small;
+    color: gray;
+}
+
 #textarea-container {
 	background-position: 98% bottom;
 	background-repeat: no-repeat;
