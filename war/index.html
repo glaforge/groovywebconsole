@@ -55,7 +55,10 @@
                 continuousScanning: 500,
                 lineNumbers: true,
                 textWrapping: false,
-                tabMode: "spaces"
+                tabMode: "spaces",
+                submitFunction: function() {
+                    $("#executeButton").click();
+                }
             });
         </script>
                 

@@ -642,7 +642,8 @@ var Editor = (function(){
         }
         event.stop();
       }
-      else if (event.ctrlKey || event.metaKey) {
+      else if (event.ctrlKey || event.metaKey || event.altKey) {
+
         if ((event.shiftKey && code == 90) || code == 89) { // shift-Z, Y
           select.scrollToNode(this.history.redo());
           event.stop();
@@ -651,9 +652,17 @@ var Editor = (function(){
           select.scrollToNode(this.history.undo());
           event.stop();
         }
-        else if (code == 83 && this.options.saveFunction) { // S
-          this.options.saveFunction();
-          event.stop();
+        else if (code == 83 && this.options.saveFunction) {
+          if (event.metaKey && event.altKey) { // meta-alt-S
+            this.options.saveFunction();
+            event.stop();
+          }
+        }
+        else if (code == 82 && this.options.submitFunction) {
+          if (event.metaKey && event.altKey) { // meta-alt-R
+            this.options.submitFunction();
+            event.stop();
+          }
         }
       }
     },

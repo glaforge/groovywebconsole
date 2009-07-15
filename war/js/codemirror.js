@@ -34,6 +34,7 @@ var CodeMirror = (function(){
     passDelay: 200,
     continuousScanning: false,
     saveFunction: null,
+    submitFunction: null,         
     onChange: null,
     undoDepth: 50,
     undoDelay: 800,
