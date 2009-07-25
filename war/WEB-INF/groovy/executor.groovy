@@ -39,6 +39,7 @@ def sanitizeStacktrace(t) {
         'com.google.', 'org.mortbay.',
         'java.', 'javax.', 'sun.', 
         'groovy.', 'org.codehaus.groovy.',
+        'groovyx.gaelyk.', 'executor'
 	]
     def trace = t.getStackTrace()
     def newTrace = []
