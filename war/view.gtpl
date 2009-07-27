@@ -22,10 +22,24 @@
         	SyntaxHighlighter.all();
         </script>
 
+        <script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=glaforge&apiKey=R_c6e14f0ec7fd7c31296c8d394cfbe929"></script>
+        <script type="text/javascript" charset="utf-8" src="http://s.bit.ly/TweetAndTrack.js?v=1.01"></script>
     </head>
 
     <body>
         <h1>Groovy web console</h1>
+
+        <div id="tweetthis">
+            <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}');">
+                <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
+                <table>
+                    <tr>
+                        <td><img src="/images/twitter.png" alt="tweet this snippet" align="left"></td>
+                        <td><i>Tweet<br/>this<br/>script</i></td>
+                    </tr>
+                </table>
+            </a>
+        </div>
 
         <h2>${entity?.title ?: 'Untitled script'}</h2>
         <div id="publishedby">

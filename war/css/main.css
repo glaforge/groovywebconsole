@@ -32,6 +32,11 @@ h2, #publishedby, .indent {
     font-family: Arial, sans-serif;
 }
 
+#tweetthis {
+    float: right;
+    margin: 10px;
+}
+
 #recentScripts {
     float: left;
     font-family: Arial, sans-serif;
