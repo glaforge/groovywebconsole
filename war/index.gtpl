@@ -5,7 +5,7 @@
         <script src="js/codemirror.js" type="text/javascript"></script>
         <script src="js/mirrorframe.js" type="text/javascript"></script>
         <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
-        <script src="js/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
         
         <link rel="stylesheet" type="text/css" href="css/redmond/jquery-ui-1.7.1.custom.css"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -18,13 +18,30 @@
         </div>        
 
         <h1>Groovy web console</h1>
-        <div id="textarea-container" class="border">
-            <textarea id="script" name="script" cols="140" rows="40"></textarea>
-        </div>
+
+        <form id="publishform" action="publish.groovy" method="POST">
+            <div id="textarea-container" class="border">
+                <textarea id="script" name="script" cols="140" rows="40"><% include "/loadscript.groovy" %></textarea>
+            </div>
         
-        <div id="button-bar">
-            <input id="executeButton" type="button" value="Execute">
-        </div>        
+            <div id="button-bar">
+                <input id="executeButton" type="button" value="Execute">
+                <input id="publishButton" type="submit" value="Publish">
+                <input id="title" name="title" type="hidden" value="">
+                <input id="author" name="author" type="hidden" value="">
+            </div>
+        </form>
+
+        <div id="dialog" title="Publish your Groovy snippet">
+            <label for="dialogTitle">Title</label>
+            <br/>
+            <input type="text" name="dialogTitle" id="dialogTitle" class="text ui-widget-content ui-corner-all"/>
+            <br/>
+            <br/>
+            <label for="dialogAuthor">Author</label>
+            <br/>
+            <input type="text" name="dialogAuthor" id="dialogAuthor" value="" class="text ui-widget-content ui-corner-all"/>
+        </div>
         
         <div id="tabs">
             <ul>
@@ -46,21 +63,9 @@
             </div>
         </div>
 
-        <div id="footer">
-            <h3>Tips</h3>
-            <ul>
-                <li>You can hit Alt-Meta-R to execute the current script without using the execute button.</li>
-            </ul>
-            <h3>About this site:</h3>
-            <ul>
-                <li>Application deployed on <a href="http://code.google.com/appengine">Google App Engine</a></li>
-                <li>Developed with the <a href="http://gaelyk.appspot.com">Gaelyk</a> lightweigh Groovy toolkit for Google App Engine</li>
-                <li>Code hosted on <a href="http://github.com/glaforge/groovywebconsole/tree/master">GitHub</a> and managed with Git</li>
-                <li>Live syntax highlighting provided by <a href="http://marijn.haverbeke.nl/codemirror/">CodeMirror</a></li>
-            </ul>
-        </div>
-        
-        <script language="javascript">            
+        <% include '/WEB-INF/includes/about.gtpl' %>
+
+        <script language="javascript">
         	var editor = CodeMirror.fromTextArea('script', {
                 height: "300px",
                 parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
@@ -71,7 +76,7 @@
                 textWrapping: false,
                 tabMode: "spaces",
                 submitFunction: function() {
-                    $("#executeButton").click();
+                    \$("#executeButton").click();
                 }
             });
         </script>

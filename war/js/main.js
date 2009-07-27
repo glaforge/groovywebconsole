@@ -2,8 +2,36 @@ $(document).ready(function() {
 	$(function() {
 		$("#tabs").tabs();
 		$("#textarea-container").resizable({ handles: 's', alsoResize: 'iframe' });
+
+        $("#dialog").dialog({
+			bgiframe: true,
+			autoOpen: false,
+			height: 280,
+			width: 330,
+			modal: true,
+			buttons: {
+				Submit: function() {
+                    $("#title").val($("#dialogTitle").val());
+                    $("#author").val($("#dialogAuthor").val());
+                    $("#script").val(editor.getCode());
+                    $("#publishform").submit();
+				}
+			}
+		});
 	});
-		
+
+    $("#publishButton").click(function(event) {
+        var code = editor.getCode();
+        // better trim() function than JQuery's
+        if (code.replace(/^\s+|\s+$/g, '').length > 0) {
+            $('#dialog').dialog('open');
+            event.preventDefault();
+        } else {
+            alert("Please enter a script before publishing.");
+            event.preventDefault();
+        }
+    });
+
     $("#executeButton").click(function(event) {
 		$.ajax({
 		   	type: "POST",

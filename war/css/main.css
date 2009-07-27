@@ -10,6 +10,14 @@ h1 {
 	color: white;
 }
 
+h2, #publishedby, .indent {
+    margin-left: 20px;
+}
+
+#publishedby {
+    font-style: italic;
+}
+
 .border {
 	background-color: #FAFAFF;
 	border: 1px solid gray;
@@ -17,6 +25,22 @@ h1 {
 
 .hidden {
 	display: none;
+}
+
+#backtoconsole {
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#recentScripts {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: small;
+    color: gray;
+}
+
+#viewAllScripts {
+    margin-left: 20px;
 }
 
 #footer {

@@ -1,0 +1,6 @@
+<datastore-indexes autoGenerate="false">
+    <datastore-index kind="savedscript" ancestor="false" source="auto">
+        <property name="author" direction="asc"/>
+        <property name="dateCreated" direction="desc"/>
+    </datastore-index>
+</datastore-indexes>

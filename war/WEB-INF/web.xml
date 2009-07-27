@@ -16,4 +16,8 @@
         <servlet-name>TemplateServlet</servlet-name>
         <url-pattern>*.gtpl</url-pattern>
     </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.gtpl</welcome-file>
+    </welcome-file-list>
 </web-app>
