@@ -34,7 +34,7 @@
                 <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
                 <table>
                     <tr>
-                        <td><img src="/images/twitter.png" alt="tweet this snippet" align="left"></td>
+                        <td><img src="/images/twitter.png" alt="tweet this snippet" align="left" border="0"></td>
                         <td><i>Tweet<br/>this<br/>script</i></td>
                     </tr>
                 </table>
@@ -43,11 +43,13 @@
 
         <h2>${entity?.title ?: 'Untitled script'}</h2>
         <div id="publishedby">
+            <img src="/images/date.png" align="top">
             Published ${new com.ocpsoft.pretty.time.PrettyTime().format(entity.dateCreated)}
             by
             <%
                 if (entity.author && entity.author != 'Anonymous') {
             %>
+                <img src="/images/user.png" align="top">
                 <a href="/recentscripts.gtpl?author=${entity.author}&limit=40">${entity.author}</a>
             <%
                 } else {
@@ -55,17 +57,39 @@
                 Anonymous
             <%
                 }
+                if (entity?.tags) {
             %>
+                with tags
+            <%
+                    entity.tags.each { tag ->
+            %>
+                <img src="/images/tag_blue.png" align="top">
+                <a href="/recentscripts.gtpl?tag=${tag}&limit=40">${tag}</a>
+            <%
+                    }
+                }
+            %>
+
         </div>
 
         <pre class="brush:groovy">${entity.script.value.replaceAll('<', '&lt;')}</pre>
 
         <div id="backtoconsole">
-            <h3>Actions:</h3>
+            <h3>Actions</h3>
             <ul>
                 <li><a href="/?id=${entity.key.id}">Edit in the console...</a>
                 <li><a href="/">Back to the console...</a></li>
             </ul>
+        </div>
+
+        <div id="commentsArea">
+            <script>
+                var idcomments_acct = 'ffac2056f3a0f603b8799858d3af8299';
+                var idcomments_post_id;
+                var idcomments_post_url;
+                </script>
+                <span id="IDCommentsPostTitle" style="display:none"></span>
+            <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
         </div>
 
         <% include '/WEB-INF/includes/about.gtpl' %>

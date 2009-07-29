@@ -11,6 +11,8 @@ query.addSort("dateCreated", Query.SortDirection.DESCENDING)
 
 if (params.author) {
     query.addFilter("author", Query.FilterOperator.EQUAL, params.author)
+} else if (params.tag) {
+    query.addFilter("tags", Query.FilterOperator.EQUAL, params.tag)
 }
 
 PreparedQuery preparedQuery = datastoreService.prepare(query)
@@ -33,6 +35,12 @@ html.ul {
                 yieldUnescaped ' &mdash; '
             }
             span new PrettyTime().format(entity.dateCreated)
+            if (entity.tags) {
+                span " with tags "
+                entity.tags.each { tag ->
+                    a href: "/recentscripts.gtpl?tag=${tag}&limit=40", tag
+                }
+            }
         }
     }
 }

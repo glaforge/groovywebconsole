@@ -29,6 +29,7 @@
                 <input id="publishButton" type="submit" value="Publish">
                 <input id="title" name="title" type="hidden" value="">
                 <input id="author" name="author" type="hidden" value="">
+                <input id="tags" name="tags" type="hidden" value="">
             </div>
         </form>
 
@@ -41,6 +42,11 @@
             <label for="dialogAuthor">Author</label>
             <br/>
             <input type="text" name="dialogAuthor" id="dialogAuthor" value="" class="text ui-widget-content ui-corner-all"/>
+            <br/>
+            <br/>
+            <label for="dialogTags">Tags <span class="smaller">(comma separated)</span></label>
+            <br/>
+            <input type="text" name="dialogTags" id="dialogTags" value="" class="text ui-widget-content ui-corner-all"/>
         </div>
         
         <div id="tabs">

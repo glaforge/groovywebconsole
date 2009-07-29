@@ -6,13 +6,14 @@ $(document).ready(function() {
         $("#dialog").dialog({
 			bgiframe: true,
 			autoOpen: false,
-			height: 280,
+			height: 330,
 			width: 330,
 			modal: true,
 			buttons: {
 				Submit: function() {
                     $("#title").val($("#dialogTitle").val());
                     $("#author").val($("#dialogAuthor").val());
+                    $("#tags").val($("#dialogTags").val());
                     $("#script").val(editor.getCode());
                     $("#publishform").submit();
 				}
