@@ -29,7 +29,7 @@ pre {
 
 #actionsBreadcrumb {
     padding: 4px 0px 4px 0px;
-    border: 2px solid darkgray;
+    border: 2px solid #888;
     border-right: 0px;
     margin: 15px 0px 10px 20px;
     display: inline-block;
@@ -40,22 +40,22 @@ pre {
     padding: 4px 10px 5px 5px;
     font-weight: bold;
     color: white;
-    background-color: darkgray;
+    background-color: #888;
 }
 
 .actionsBreadcrumbChild, .actionsBreadcrumbLastChild {
     padding: 4px;
     padding-right: 8px;
-    color: gray;
-    border-right: 2px dotted darkgray;
+    color: #888;
+    border-right: 2px dotted #888;
 }
 
 .actionsBreadcrumbLastChild {
-    border-right: 2px solid darkgray;
+    border-right: 2px solid #888;
 }
 
 .actionsBreadcrumbChild a, .actionsBreadcrumbLastChild a {
-    color: gray;
+    color: #888;
     text-decoration: none;
 }
 
@@ -102,6 +102,7 @@ pre {
 
 #recentScripts {
     float: left;
+    width: 55%;
     font-family: Arial, sans-serif;
     font-size: small;
     color: gray;
@@ -114,6 +115,7 @@ pre {
 #footer {
     position: absolute;
     right: 20px;
+    width: 45%;
     font-size: small;
     color: gray;
 }
