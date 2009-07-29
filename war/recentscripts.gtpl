@@ -19,6 +19,11 @@
             <% } %>
         </div>
 
-        <% include "/recentscripts.groovy" %>
+        <% include "/recenttagsandauthors.groovy" %>
+        <br/>
+        <div class="indent">
+            <% include "/recentscripts.groovy" %>
+        </div>
+
     </body>
 </html>

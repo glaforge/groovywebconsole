@@ -58,6 +58,15 @@ pre {
     text-decoration: underline;
 }
 
+.taglist {
+    list-style-type: none;
+}
+
+.taglist li {
+    display: inline;
+    padding-right: 10px;
+}
+
 .border {
 	background-color: #FAFAFF;
 	border: 1px solid darkgray;
