@@ -3,4 +3,8 @@
         <property name="author" direction="asc"/>
         <property name="dateCreated" direction="desc"/>
     </datastore-index>
+    <datastore-index kind="savedscript" ancestor="false" source="manual">
+        <property name="tags" direction="asc"/>
+        <property name="dateCreated" direction="desc"/>
+    </datastore-index>
 </datastore-indexes>

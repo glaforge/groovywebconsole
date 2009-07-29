@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        <h1>Groovy web console</h1>
+        <h1><a href="/">Groovy web console</a></h1>
 
         <div id="tweetthis">
             <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}');">

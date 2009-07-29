@@ -17,7 +17,7 @@
             <img src="images/ajax-spinner-blue.gif">
         </div>        
 
-        <h1>Groovy web console</h1>
+        <h1><a href="/">Groovy web console</a></h1>
 
         <form id="publishform" action="publish.groovy" method="POST">
             <div id="textarea-container" class="border">

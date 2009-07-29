@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <h1>Groovy web console</h1>
+        <h1><a href="/">Groovy web console</a></h1>
 
         <h2>Recent scripts ${params.author ? "by " + params.author : ""} ${params.tag ? " with tag '" + params.tag + "'" : ""}</h2>
 

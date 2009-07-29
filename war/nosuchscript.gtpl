@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <h1>Groovy web console</h1>
+        <h1><a href="/">Groovy web console</a></h1>
 
         <div id="backtoconsole">
             <p>No such script!</p>

@@ -10,6 +10,11 @@ h1 {
 	color: white;
 }
 
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+
 h2, #publishedby, .indent {
     margin-left: 20px;
 }
@@ -114,10 +119,8 @@ pre {
 }
 
 #textarea-container {
-	background-position: 98% bottom;
-	background-repeat: no-repeat;
-	background-image: url('../images/google-app-engine-groovy.png');
-	margin-bottom: 10px;
+    background: url('../images/google-app-engine-groovy.png') no-repeat 98% bottom;
+    margin-bottom: 10px;
 }
 
 #commentsArea #idc-container h3 {
