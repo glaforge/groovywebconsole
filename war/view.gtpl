@@ -69,18 +69,16 @@
                     }
                 }
             %>
+        </div>
 
+        <div id="actionsBreadcrumb">
+            <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
+            <span class="actionsBreadcrumbChild"><a href="/?id=${entity.key.id}">Edit in console</a></span>
+            <span class="actionsBreadcrumbChild"><a href="/">Back to console</a></span>
+            <span class="actionsBreadcrumbLastChild"><a href="/recentscripts.gtpl?limit=40">View recent scripts</a></span>
         </div>
 
         <pre class="brush:groovy">${entity.script.value.replaceAll('<', '&lt;')}</pre>
-
-        <div id="backtoconsole">
-            <h3>Actions</h3>
-            <ul>
-                <li><a href="/?id=${entity.key.id}">Edit in the console...</a>
-                <li><a href="/">Back to the console...</a></li>
-            </ul>
-        </div>
 
         <div id="commentsArea">
             <script>

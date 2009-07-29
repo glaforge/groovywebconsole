@@ -22,9 +22,45 @@ pre {
     font-style: italic;
 }
 
+#actionsBreadcrumb {
+    padding: 4px 0px 4px 0px;
+    border: 2px solid darkgray;
+    border-right: 0px;
+    margin: 15px 0px 10px 20px;
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+.actionsBreadcrumbHead {
+    padding: 4px 10px 5px 5px;
+    font-weight: bold;
+    color: white;
+    background-color: darkgray;
+}
+
+.actionsBreadcrumbChild, .actionsBreadcrumbLastChild {
+    padding: 4px;
+    padding-right: 8px;
+    color: gray;
+    border-right: 2px dotted darkgray;
+}
+
+.actionsBreadcrumbLastChild {
+    border-right: 2px solid darkgray;
+}
+
+.actionsBreadcrumbChild a, .actionsBreadcrumbLastChild a {
+    color: gray;
+    text-decoration: none;
+}
+
+.actionsBreadcrumbChild a:hover, .actionsBreadcrumbLastChild a:hover {
+    text-decoration: underline;
+}
+
 .border {
 	background-color: #FAFAFF;
-	border: 1px solid gray;
+	border: 1px solid darkgray;
 }
 
 .hidden {

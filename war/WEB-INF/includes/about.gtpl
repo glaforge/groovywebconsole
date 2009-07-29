@@ -4,18 +4,13 @@
     <div id="recentScriptsList">
         <% include '/recentscripts.groovy' %>
     </div>
-
-    <div id="viewAllScripts">
-    </div>
-    <ul>
-        <li><a href="/recentscripts.gtpl?limit=40">View all recent scripts</a></li>
-    </ul>
 </div>
 
 <div id="footer">
-    <h2>Tips</h2>
+    <h2>Console tips</h2>
     <ul>
         <li>You can hit Alt-Meta-R to execute the current script without using the execute button.</li>
+        <li>You can resize the script view by sliding down the bottom of the line number gutter.</li>
     </ul>
     <h2>About this site:</h2>
     <ul>

@@ -11,19 +11,14 @@
 
         <h2>Recent scripts ${params.author ? "by " + params.author : ""} ${params.tag ? " with tag '" + params.tag + "'" : ""}</h2>
 
-        <% include "/recentscripts.groovy" %>
-
-        <div id="backtoconsole">
-            <h3>Actions:</h3>
-            <ul>
-                <% if (params.author) { %>
-                <li><a href="/recentscripts.gtpl?limit=40">View all recent scripts</a></li>
-                <%
-                    }
-                %>
-                <li><a href="/">Back to the console...</a></li>
-            </ul>
+        <div id="actionsBreadcrumb">
+            <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
+            <span class="actionsBreadcrumb${params.author || params.tag ? "" : "Last"}Child"><a href="/">Back to console</a></span>
+            <% if (params.author || params.tag) { %>
+            <span class="actionsBreadcrumbLastChild"><a href="/recentscripts.gtpl?limit=40">View all recent scripts</a></span>
+            <% } %>
         </div>
 
+        <% include "/recentscripts.groovy" %>
     </body>
 </html>

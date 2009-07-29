@@ -25,11 +25,16 @@
             </div>
         
             <div id="button-bar">
-                <input id="executeButton" type="button" value="Execute">
-                <input id="publishButton" type="submit" value="Publish">
                 <input id="title" name="title" type="hidden" value="">
                 <input id="author" name="author" type="hidden" value="">
                 <input id="tags" name="tags" type="hidden" value="">
+                <div id="actionsBreadcrumb">
+                    <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
+                    <span class="actionsBreadcrumbChild" id="executeButton"><a href="javascript:void(0)">Execute script</a></span>
+                    <span class="actionsBreadcrumbChild" id="newScriptButton"><a href="/">New script</a></span>
+                    <span class="actionsBreadcrumbChild" id="publishButton"><a href="/recentscripts.gtpl?limit=40">Publish script</a></span>
+                    <span class="actionsBreadcrumbLastChild"><a href="/recentscripts.gtpl?limit=40">View recent scripts</a></span>
+                </div>
             </div>
         </form>
 
