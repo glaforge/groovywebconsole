@@ -10,5 +10,6 @@
         <li>Developed with the <a href="http://gaelyk.appspot.com">Gaelyk</a> lightweigh Groovy toolkit for Google App Engine</li>
         <li>Code hosted on <a href="http://github.com/glaforge/groovywebconsole/tree/master">GitHub</a> and managed with Git</li>
         <li>Live syntax highlighting provided by <a href="http://marijn.haverbeke.nl/codemirror/">CodeMirror</a></li>
+        <li>Syntax highlighting for sharing provided by <a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter">SyntaxHighlighter</a></li>
     </ul>
 </div>
