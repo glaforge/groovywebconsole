@@ -8,7 +8,9 @@ if (params['id']) {
         Entity entity = datastoreService.get(key)
 
         request.setAttribute('entity', entity)
-        forward 'view.gtpl'
+
+		forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
+
     } catch (Throwable t) {
         forward 'nosuchscript.gtpl'
     }
