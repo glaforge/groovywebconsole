@@ -147,7 +147,7 @@ pre {
 	background-color: lightgray;
 	padding: 5px;
 	margin-right: 5px;
-	font-family: monospace;
+	font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
 	font-size: 10pt;
 }
 
