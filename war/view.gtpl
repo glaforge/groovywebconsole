@@ -22,11 +22,15 @@
         	SyntaxHighlighter.all();
         </script>
 
+        <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+
         <script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=glaforge&apiKey=R_c6e14f0ec7fd7c31296c8d394cfbe929"></script>
         <script type="text/javascript" charset="utf-8" src="http://s.bit.ly/TweetAndTrack.js?v=1.01"></script>
     </head>
 
     <body>
+        <script src="js/view.js" type="text/javascript"></script>
+    
         <h1><a href="/">Groovy web console</a></h1>
 
         <div id="tweetthis">
@@ -75,6 +79,7 @@
             <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
             <span class="actionsBreadcrumbChild"><a href="/?id=${entity.key.id}">Edit in console</a></span>
             <span class="actionsBreadcrumbChild"><a href="/">Back to console</a></span>
+            <span class="actionsBreadcrumbChild" id="toggleLineNumbers"><a href="javascript:void(0)">Show/hide line numbers</a></span>
             <span class="actionsBreadcrumbLastChild"><a href="/recentscripts.gtpl?limit=40">View recent scripts</a></span>
         </div>
 
