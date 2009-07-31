@@ -1,0 +1,16 @@
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>gaelyk</application>
+    <version>1</version>
+    
+    <static-files>
+        <include path="**.css" />
+        <include path="**.jpg" />
+        <include path="**.png" />
+        <include path="**.swf" />
+        <include path="**.js" />
+        <include path="/robots.txt" />
+        <include path="/sitemap.xml" />
+        <exclude path="/WEB-INF/**.groovy" />
+        <exclude path="**.gtpl" />
+    </static-files>
+</appengine-web-app>
