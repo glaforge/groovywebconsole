@@ -91,13 +91,17 @@ pre {
     font-family: Arial, sans-serif;
 }
 
-#tweetthis {
+#shareThis {
     float: right;
     margin: 10px;
 }
 
-#tweetthis a {
+#shareThis a {
     text-decoration: none;
+}
+
+#embedText, #dialog {
+    display: none;
 }
 
 #recentScripts {

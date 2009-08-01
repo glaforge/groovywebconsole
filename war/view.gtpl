@@ -12,6 +12,9 @@
         <link type="text/css" rel="stylesheet" href="/css/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="/css/shThemeDefault.css"/>
 
+        <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+
         <script language="javascript" src="/js/shCore.js"></script>
         <script language="javascript" src="/js/shBrushGroovy.js"></script>
         <script language="javascript" src="/js/shBrushXml.js"></script>
@@ -22,8 +25,6 @@
         	SyntaxHighlighter.all();
         </script>
 
-        <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
-
         <script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=glaforge&apiKey=R_c6e14f0ec7fd7c31296c8d394cfbe929"></script>
         <script type="text/javascript" charset="utf-8" src="http://s.bit.ly/TweetAndTrack.js?v=1.01"></script>
     </head>
@@ -33,16 +34,50 @@
     
         <h1><a href="/">Groovy web console</a></h1>
 
-        <div id="tweetthis">
-            <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}');">
-                <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
-                <table>
-                    <tr>
-                        <td><img src="/images/twitter.png" alt="tweet this snippet" align="left" border="0"></td>
-                        <td><i>Tweet<br/>this<br/>script</i></td>
-                    </tr>
-                </table>
-            </a>
+        <div id="shareThis">
+            <table cellspacing="20">
+                <tr>
+                    <td>
+                        <a id="embedLink" href="#">
+                            <table>
+                                <tr>
+                                    <td><img src="/images/puzzle.png" alt="embed in your blog" align="left" border="0"></td>
+                                    <td><i>Embed<br/>this<br/>script</i></td>
+                                </tr>
+                            </table>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}');">
+                            <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
+                            <table>
+                                <tr>
+                                    <td><img src="/images/twitter.png" alt="tweet this snippet" align="left" border="0"></td>
+                                    <td><i>Tweet<br/>this<br/>script</i></td>
+                                </tr>
+                            </table>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <div id="embedText" title="Embed this script">
+                <p>To embed this script in your site, just drop the content below where you want to embed it.</p>
+                <textarea cols="55" rows="14">
+&lt;script&gt;
+    // The ID of this script
+    gc_id = ${entity.key.id};
+
+    // The iframe's width
+    gc_width = 300;
+
+    // The iframe's height
+    gc_height = 100;
+&lt;/script&gt;
+&lt;script language="javascript"
+             src="http://groovyconsole.appspot.com/js/embed.js"&gt;
+&lt;/script&gt;
+                </textarea>
+            </div>
         </div>
 
         <h2>${entity?.title ?: 'Untitled script'}</h2>

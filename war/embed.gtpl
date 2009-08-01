@@ -21,6 +21,20 @@
     </head>
 
     <body>
-        <pre class="brush:groovy">${entity.script.value.replaceAll('<', '&lt;')}</pre>
+        <div class="gwcEmbedded">
+            <div class="gwcHeader">
+                <span class="gwcTitle">${entity.title ?: 'Untitled'}</span>
+                <span class="gwcPublished">
+                    <img src="/images/date.png" align="top">
+                    Published ${new com.ocpsoft.pretty.time.PrettyTime().format(entity.dateCreated)}
+                    on the <a href="http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}">Groovy Web Console</a>
+                </span>
+                <span class="gwcAuthor">
+                    by <img src="/images/user.png" align="top">
+                    <a href="http://groovyconsole.appspot.com/recentscripts.gtpl?author=${URLEncoder.encode(entity.author)}&limit=40">${entity.author}</a>
+                </span>
+            </div>
+            <pre class="brush:groovy">${entity.script.value.replaceAll('<', '&lt;')}</pre>
+        </div>
     </body>
 </html>
