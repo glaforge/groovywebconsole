@@ -2,11 +2,14 @@ import org.codehaus.groovy.control.MultipleCompilationErrorsException
 
 def scriptText = request.getParameter("script") ?: "'The received script was null.'"
 
-def output = new StringWriter()
-def binding = new Binding([out: new PrintWriter(output)])
+def encoding = 'UTF-8'
+def stream = new ByteArrayOutputStream()
+def printStream = new PrintStream(stream, true, encoding)
 
 def stacktrace = new StringWriter()
 def errWriter = new PrintWriter(stacktrace)
+
+def binding = new Binding([out: printStream])
 
 class NoGaeSdkAccessGCL extends GroovyClassLoader {
     NoGaeSdkAccessGCL(classLoader) {
@@ -23,6 +26,12 @@ class NoGaeSdkAccessGCL extends GroovyClassLoader {
 def gcl = new NoGaeSdkAccessGCL(Thread.currentThread().contextClassLoader)
 Thread.currentThread().contextClassLoader = gcl
 
+def originalOut = System.out
+def originalErr = System.err
+
+System.setOut(printStream)
+System.setErr(printStream)
+
 def result = ""
 try {
 	result = new GroovyShell(gcl, binding).evaluate(scriptText)
@@ -35,13 +44,16 @@ try {
 		sanitizeStacktrace(cause)
 	}
 	t.printStackTrace(errWriter)
+} finally {
+    System.setOut(originalOut)
+    System.setErr(originalErr)
 }
 
 response.contentType = "application/json"
 
 out.println """{
 	executionResult: "${escape(result)}",
- 	outputText: "${escape(output)}",
+ 	outputText: "${escape(stream.toString(encoding))}",
  	stacktraceText: "${escape(stacktrace)}"
 }"""
 
