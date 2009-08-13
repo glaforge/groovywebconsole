@@ -9,6 +9,10 @@ def stacktrace = new StringWriter()
 def errWriter = new PrintWriter(stacktrace)
 
 class NoGaeSdkAccessGCL extends GroovyClassLoader {
+    NoGaeSdkAccessGCL(classLoader) {
+        super(classLoader)
+    }
+
     Class loadClass(final String name, boolean lookupScriptFiles, boolean preferClassOverScript, boolean resolve) {
         if (name.startsWith('com.google.appengine.'))
             throw new SecurityException("Access to $name forbidden. You're not allowed to use the App Engine SDK within the console.")
@@ -16,16 +20,8 @@ class NoGaeSdkAccessGCL extends GroovyClassLoader {
     }
 }
 
-def gcl = new NoGaeSdkAccessGCL()
-
-def originalAsType = String.metaClass.metaMethods.find { it.name == 'asType' }
-String.metaClass.asType = { Class c ->
-    if (delegate.startsWith('com.google.appengine.')) {
-        throw new SecurityException("Access to $delegate forbidden. You're not allowed to use the App Engine SDK within the console.")
-    } else {
-        return originalAsType.doMethodInvoke(delegate, c)
-    }
-}
+def gcl = new NoGaeSdkAccessGCL(Thread.currentThread().contextClassLoader)
+Thread.currentThread().contextClassLoader = gcl
 
 def result = ""
 try {
