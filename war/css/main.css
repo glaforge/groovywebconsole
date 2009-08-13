@@ -152,7 +152,7 @@ pre {
 	padding: 5px;
 	margin-right: 5px;
 	font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
-	font-size: 10pt;
+	font-size: 1em;
 }
 
 .ui-tabs .ui-tabs-hide {
