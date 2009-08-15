@@ -32,7 +32,7 @@ SyntaxHighlighter.brushes.Groovy = function()
 	// Contributed by Andres Almiray
 	// http://jroller.com/aalmiray/entry/nice_source_code_syntax_highlighter
 
-	var keywords =	'as assert break case catch class continue def default do else extends finally ' +
+	var keywords =	'as assert break case catch class continue def default do else extends finally for ' +
 					'if in implements import instanceof interface new package property return switch ' +
 					'throw throws try while public protected private static';
 	var types    =  'void boolean byte char short int long float double';
