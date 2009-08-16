@@ -21,7 +21,7 @@ def limit = params.limit ? Integer.parseInt(params.limit) : 10
 def entities = preparedQuery.asList(withLimit(limit))
 
 html.ul {
-    entities.each {Entity entity ->
+    entities.each { Entity entity ->
         li {
             a href: "/view.groovy?id=${entity.key.id}", entity.title ?: 'Untitled'
             if (!params.author) {
@@ -35,7 +35,7 @@ html.ul {
                 yieldUnescaped ' &mdash; '
             }
             span new PrettyTime().format(entity.dateCreated)
-            if (entity.tags) {
+            if (entity.tags.join()) {
                 span " with tags "
                 entity.tags.each { tag ->
                     a href: "/recentscripts.gtpl?tag=${tag}&limit=40", tag
