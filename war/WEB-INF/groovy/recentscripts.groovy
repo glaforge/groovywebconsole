@@ -35,7 +35,7 @@ html.ul {
                 yieldUnescaped ' &mdash; '
             }
             span new PrettyTime().format(entity.dateCreated)
-            if (entity.tags.join()) {
+            if (entity.tags?.join()) {
                 span " with tags "
                 entity.tags.each { tag ->
                     a href: "/recentscripts.gtpl?tag=${tag}&limit=40", tag

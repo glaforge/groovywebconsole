@@ -96,7 +96,7 @@
                 Anonymous
             <%
                 }
-                if (entity?.tags.join()) {
+                if (entity?.tags?.join()) {
             %>
                 with tags
             <%

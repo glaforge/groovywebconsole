@@ -6,7 +6,7 @@ entity.script = new Text(params.script)
 entity.title = params.title ?: "Untitled"
 entity.author = params.author ?: "Anonymous"
 entity.dateCreated = new Date()
-entity.tags = params.tags?.split(',')*.trim()
+entity.tags = params.tags ? params.tags?.split(',')*.trim() : []
 entity.save()
 
 request.setAttribute('entity', entity)
