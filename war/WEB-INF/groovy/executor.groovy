@@ -1,4 +1,5 @@
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
+import com.google.apphosting.api.ApiProxy
 
 def scriptText = request.getParameter("script") ?: "'The received script was null.'"
 
@@ -32,6 +33,8 @@ def originalErr = System.err
 System.setOut(printStream)
 System.setErr(printStream)
 
+def env = ApiProxy.getCurrentEnvironment()
+ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
 	result = new GroovyShell(gcl, binding).evaluate(scriptText)
@@ -45,6 +48,7 @@ try {
 	}
 	t.printStackTrace(errWriter)
 } finally {
+    ApiProxy.setEnvironmentForCurrentThread(env)
     System.setOut(originalOut)
     System.setErr(originalErr)
 }
