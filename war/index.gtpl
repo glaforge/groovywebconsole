@@ -1,6 +1,12 @@
 <html>
     <head>
         <title>Groovy web console</title>
+
+        <link rel="alternate"
+                type="application/atom+xml"
+                href="http://groovyconsole.appspot.com/atom.groovy"
+                title="Groovy Web Console snippets atom feed"
+        />
         
         <script src="js/codemirror.js" type="text/javascript"></script>
         <script src="js/mirrorframe.js" type="text/javascript"></script>
@@ -19,11 +25,27 @@
 
         <h1><a href="/">Groovy web console</a></h1>
 
+
         <form id="publishform" action="publish.groovy" method="POST">
             <div id="textarea-container" class="border">
                 <textarea id="script" name="script" cols="140" rows="40"><% include "/loadscript.groovy" %></textarea>
             </div>
-        
+
+            <table cellspacing="10" style="float:right">
+            <tr>
+                <td>
+                    <a id="atomLink" href="http://groovyconsole.appspot.com/atom.groovy">
+                        <table>
+                            <tr>
+                                <td><img src="/images/atom-feed.png" alt="subscribe to the feed" align="left" border="0"></td>
+                                <td><i>Subscribe<br/>to this<br/>site</i></td>
+                            </tr>
+                        </table>
+                    </a>
+                </td>
+            </tr>
+        </table>
+            
             <div id="button-bar">
                 <input id="title" name="title" type="hidden" value="">
                 <input id="author" name="author" type="hidden" value="">

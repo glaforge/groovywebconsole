@@ -6,6 +6,12 @@
 
         <title>Groovy web console - ${entity?.title ?: 'Untitled script'}</title>
 
+        <link rel="alternate"
+                type="application/atom+xml"
+                href="http://groovyconsole.appspot.com/atom.groovy"
+                title="Groovy Web Console snippets atom feed"
+        />
+
         <link rel="stylesheet" type="text/css" href="/css/redmond/jquery-ui-1.7.1.custom.css"/>
         <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 
@@ -38,6 +44,16 @@
             <table cellspacing="20">
                 <tr>
                     <td>
+                        <a id="atomLink" href="http://groovyconsole.appspot.com/atom.groovy">
+                            <table>
+                                <tr>
+                                    <td><img src="/images/atom-feed.png" alt="subscribe to the feed" align="left" border="0"></td>
+                                    <td><i>Subscribe<br/>to this<br/>site</i></td>
+                                </tr>
+                            </table>
+                        </a>
+                    </td>
+                    <td>
                         <a id="embedLink" href="#">
                             <table>
                                 <tr>
@@ -47,6 +63,7 @@
                             </table>
                         </a>
                     </td>
+
                     <td>
                         <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}');">
                             <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
