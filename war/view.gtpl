@@ -8,7 +8,7 @@
 
         <link rel="alternate"
                 type="application/atom+xml"
-                href="http://groovyconsole.appspot.com/atom.groovy"
+                href="/atom.groovy"
                 title="Groovy Web Console snippets atom feed"
         />
 
@@ -44,7 +44,7 @@
             <table cellspacing="20">
                 <tr>
                     <td>
-                        <a id="atomLink" href="http://groovyconsole.appspot.com/atom.groovy">
+                        <a id="atomLink" href="/atom.groovy">
                             <table>
                                 <tr>
                                     <td><img src="/images/atom-feed.png" alt="subscribe to the feed" align="left" border="0"></td>
