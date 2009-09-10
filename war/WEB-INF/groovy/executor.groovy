@@ -12,21 +12,6 @@ def errWriter = new PrintWriter(stacktrace)
 
 def binding = new Binding([out: printStream])
 
-class NoGaeSdkAccessGCL extends GroovyClassLoader {
-    NoGaeSdkAccessGCL(classLoader) {
-        super(classLoader)
-    }
-
-    Class loadClass(final String name, boolean lookupScriptFiles, boolean preferClassOverScript, boolean resolve) {
-        if (name.startsWith('com.google.appengine.'))
-            throw new SecurityException("Access to $name forbidden. You're not allowed to use the App Engine SDK within the console.")
-        super.loadClass(name, lookupScriptFiles, preferClassOverScript, resolve)
-    }
-}
-
-def gcl = new NoGaeSdkAccessGCL(Thread.currentThread().contextClassLoader)
-Thread.currentThread().contextClassLoader = gcl
-
 def originalOut = System.out
 def originalErr = System.err
 
@@ -37,7 +22,7 @@ def env = ApiProxy.getCurrentEnvironment()
 ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
-	result = new GroovyShell(gcl, binding).evaluate(scriptText)
+	result = new GroovyShell(binding).evaluate(scriptText)
 } catch (MultipleCompilationErrorsException e) {
 	stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
 } catch (Throwable t) {
