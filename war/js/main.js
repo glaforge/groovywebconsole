@@ -6,11 +6,14 @@ $(document).ready(function() {
         $("#dialog").dialog({
 			bgiframe: true,
 			autoOpen: false,
-			height: 330,
+			height: 400,
 			width: 330,
 			modal: true,
 			buttons: {
 				Submit: function() {
+                    $("#captchaQuestion").val($("#dialogCaptchaQuestion").val());
+                    $("#captchaAnswer").val($("#dialogCaptchaAnswer").val());
+                    $("#title").val($("#dialogTitle").val());
                     $("#title").val($("#dialogTitle").val());
                     $("#author").val($("#dialogAuthor").val());
                     $("#tags").val($("#dialogTags").val());

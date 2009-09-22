@@ -44,12 +44,14 @@
                     </a>
                 </td>
             </tr>
-        </table>
+            </table>
             
             <div id="button-bar">
                 <input id="title" name="title" type="hidden" value="">
                 <input id="author" name="author" type="hidden" value="">
                 <input id="tags" name="tags" type="hidden" value="">
+                <input id="captchaQuestion" name="captchaQuestion" type="hidden" value="">
+                <input id="captchaAnswer" name="captchaAnswer" type="hidden" value="">
                 <div id="actionsBreadcrumb">
                     <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
                     <span class="actionsBreadcrumbChild" id="executeButton"><a href="javascript:void(0)">Execute script</a></span>
@@ -74,6 +76,15 @@
             <label for="dialogTags">Tags <span class="smaller">(comma separated)</span></label>
             <br/>
             <input type="text" name="dialogTags" id="dialogTags" value="" class="text ui-widget-content ui-corner-all"/>
+            <br/>
+            <br/>
+            <%
+                def calculation = new Random().nextInt(10) + ' + ' + new Random().nextInt(10)
+            %>
+            <label for="captchaAnswer">Captcha question: ${calculation}</label>
+            <br/>
+            <input type="text" name="dialogCaptchaAnswer" id="dialogCaptchaAnswer" value="" class="text ui-widget-content ui-corner-all"/>
+            <input type="hidden" name="dialogCaptchaQuestion" id="dialogCaptchaQuestion" value="${calculation}"/>
         </div>
         
         <div id="tabs">

@@ -63,6 +63,10 @@ pre {
     text-decoration: underline;
 }
 
+.redBorder {
+    border: 1px solid red;
+}
+
 .taglist {
     list-style-type: none;
 }
