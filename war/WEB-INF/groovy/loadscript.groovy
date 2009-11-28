@@ -5,7 +5,7 @@ try {
     if (params.id) {
         def id = Long.parseLong(params.id)
         def key = KeyFactory.createKey("savedscript", id)
-        Entity entity = datastoreService.get(key)
+        Entity entity = datastore.get(key)
         println entity.script.value
     }
 } catch (Throwable t) {

@@ -6,7 +6,7 @@ import static com.google.appengine.api.datastore.FetchOptions.Builder.*
 def query = new Query("savedscript")
 query.addSort("dateCreated", Query.SortDirection.DESCENDING)
 
-PreparedQuery preparedQuery = datastoreService.prepare(query)
+PreparedQuery preparedQuery = datastore.prepare(query)
 
 def entities = preparedQuery.asList(withDefault())
 

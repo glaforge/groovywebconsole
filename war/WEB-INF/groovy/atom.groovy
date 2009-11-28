@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat
 
 def query = new Query("savedscript")
 query.addSort("dateCreated", Query.SortDirection.DESCENDING)
-PreparedQuery preparedQuery = datastoreService.prepare(query)
+PreparedQuery preparedQuery = datastore.prepare(query)
 def entities = preparedQuery.asList(withLimit(10))
 
 def isoTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)

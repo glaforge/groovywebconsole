@@ -15,7 +15,7 @@ if (params.author) {
     query.addFilter("tags", Query.FilterOperator.EQUAL, params.tag)
 }
 
-PreparedQuery preparedQuery = datastoreService.prepare(query)
+PreparedQuery preparedQuery = datastore.prepare(query)
 
 def limit = params.limit ? Integer.parseInt(params.limit) : 10
 def entities = preparedQuery.asList(withLimit(limit))

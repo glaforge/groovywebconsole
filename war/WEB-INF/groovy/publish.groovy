@@ -20,7 +20,7 @@ if (captchaTestPassed) {
     entity.tags = params.tags ? params.tags?.split(',')*.trim() : []
     entity.save()
 
-    request.setAttribute('entity', entity)
+    request['entity'] = entity
 
     redirect "view.groovy?id=${entity.key.id}"
 } else {

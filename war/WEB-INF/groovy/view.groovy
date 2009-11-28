@@ -5,9 +5,9 @@ if (params['id']) {
     def id = Long.parseLong(params['id'])
     try {
         def key = KeyFactory.createKey("savedscript", id)
-        Entity entity = datastoreService.get(key)
+        Entity entity = datastore.get(key)
 
-        request.setAttribute('entity', entity)
+        request['entity'] = entity
 
 		forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
 

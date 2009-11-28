@@ -1,7 +1,7 @@
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
 import com.google.apphosting.api.ApiProxy
 
-def scriptText = request.getParameter("script") ?: "'The received script was null.'"
+def scriptText = params.script ?: "'The received script was null.'"
 
 def encoding = 'UTF-8'
 def stream = new ByteArrayOutputStream()
@@ -18,7 +18,7 @@ def originalErr = System.err
 System.setOut(printStream)
 System.setErr(printStream)
 
-def env = ApiProxy.getCurrentEnvironment()
+def env = ApiProxy.currentEnvironment
 ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
@@ -57,7 +57,7 @@ def sanitizeStacktrace(t) {
         'groovy.', 'org.codehaus.groovy.',
         'groovyx.gaelyk.', 'executor'
 	]
-    def trace = t.getStackTrace()
+    def trace = t.stackTrace
     def newTrace = []
     trace.each { stackTraceElement -> 
         if (filtered.every { !stackTraceElement.className.startsWith(it) }) {
