@@ -36,7 +36,7 @@
             <div id="actionsBreadcrumb">
                 <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
                 <span class="actionsBreadcrumbChild"><a href="/">Back to console</a></span>
-                <span class="actionsBreadcrumbLastChild"><a href="/recentscripts.gtpl?limit=40">View all recent scripts</a></span>
+                <span class="actionsBreadcrumbLastChild"><a href="/scripts">View all recent scripts</a></span>
             </div>
         </div>
 

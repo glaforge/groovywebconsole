@@ -28,7 +28,7 @@ mkp.feed(xmlns: "http://www.w3.org/2005/Atom") {
         name "Guillaume Laforge"
         email "glaforge@gmail.com"
     }
-    generator(uri: "http://gaelyk.appspot.com", version: "1.0", "Gaelyk lightweight Groovy toolkit for Google App Engine")
+    generator(uri: "http://gaelyk.appspot.com", version: "0.3.2", "Gaelyk lightweight Groovy toolkit for Google App Engine")
 
     entities.each { entity ->
         def authorText = entity.author && entity.author != 'Anonymous' ? entity.author : 'Anonymous'
@@ -36,7 +36,7 @@ mkp.feed(xmlns: "http://www.w3.org/2005/Atom") {
         entry {
             id entity.key.id
             title titleText
-            link href: "http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}"
+            link href: "http://groovyconsole.appspot.com/script/${entity.key.id}"
             updated isoTime.format(entity.dateCreated)
             summary "Snippet posted by ${authorText} on the Groovy Web Console on ${prettyDate.format(entity.dateCreated)}."
             author {

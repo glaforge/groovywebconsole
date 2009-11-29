@@ -22,8 +22,8 @@ if (captchaTestPassed) {
 
     request['entity'] = entity
 
-    redirect "view.groovy?id=${entity.key.id}"
+    redirect "/script/${entity.key.id}"
 } else {
-    redirect "badcaptcha.gtpl"
+    redirect "/badcaptcha"
 }
 

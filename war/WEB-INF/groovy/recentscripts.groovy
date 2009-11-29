@@ -23,22 +23,22 @@ def entities = preparedQuery.asList(withLimit(limit))
 html.ul {
     entities.each { Entity entity ->
         li {
-            a href: "/view.groovy?id=${entity.key.id}", entity.title ?: 'Untitled'
+            a href: "/script/${entity.key.id}", entity.title ?: 'Untitled'
             if (!params.author) {
                 span " by "
                 if (entity.author && entity.author != 'Anonymous') {
-                    a href: "/recentscripts.gtpl?author=${entity.author}&limit=40", entity.author
+                    a href: "/author/${entity.author}", entity.author
                 } else {
                     span 'Anonymous'
                 }
             } else {
-                yieldUnescaped ' &mdash; '
+                span ' - '
             }
             span new PrettyTime().format(entity.dateCreated)
             if (entity.tags?.join()) {
                 span " with tags "
                 entity.tags.each { tag ->
-                    a href: "/recentscripts.gtpl?tag=${tag}&limit=40", tag
+                    a href: "/tag/${tag}", tag
                 }
             }
         }

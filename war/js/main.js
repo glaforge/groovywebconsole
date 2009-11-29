@@ -39,7 +39,7 @@ $(document).ready(function() {
     $("#executeButton").click(function(event) {
 		$.ajax({
 		   	type: "POST",
-		    url: "executor.groovy",
+		    url: "/executor.groovy",
 		    data: { script: editor.getCode() },
 			dataType: "json",
 			
