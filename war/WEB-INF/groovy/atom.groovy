@@ -13,11 +13,11 @@ def entities = preparedQuery.asList(withLimit(10))
 def isoTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
 def prettyDate = new SimpleDateFormat("EEE, d MMM yyyy", Locale.US)
 
-response.contentType = "application/atom+xml"
+response.contentType = "application/atom+xml;charset=utf-8"
 
 def mkp = new MarkupBuilder(out)
 
-mkp.yieldUnescaped '''<?xml version="1.0" encoding="utf-8"?>'''
+//mkp.yieldUnescaped '''<?xml version="1.0" encoding="utf-8"?>'''
 
 mkp.feed(xmlns: "http://www.w3.org/2005/Atom") {
     title "Groovy Web Console"
