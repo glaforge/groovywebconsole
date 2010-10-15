@@ -1,6 +1,15 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>groovyconsole</application>
-    <version>15</version>
+
+    <version>18-b3-snapshot</version>
+
+    <!-- If all your templates and groovlets are encoding in UTF-8 -->
+    <!-- Please specify the settings below, otherwise weird characters may appear in your templates -->
+    <system-properties>
+        <property name="file.encoding" value="UTF-8"/>
+        <property name="groovy.source.encoding" value="UTF-8"/>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
+    </system-properties>
 
     <static-files>
         <exclude path="/WEB-INF/**.groovy" />

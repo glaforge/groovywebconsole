@@ -8,7 +8,7 @@ query.addSort("dateCreated", Query.SortDirection.DESCENDING)
 
 PreparedQuery preparedQuery = datastore.prepare(query)
 
-def entities = preparedQuery.asList(withDefault())
+def entities = preparedQuery.asList(withDefaults())
 
 def tagMap = entities.collect { it.tags }.flatten().groupBy { it }
 

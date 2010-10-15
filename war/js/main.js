@@ -24,6 +24,12 @@ $(document).ready(function() {
 		});
 	});
 
+    $("#captchaOperation").load("/captchaquestion.groovy", function(responseText) {
+        $("#dialogCaptchaQuestion").val(responseText);
+    });
+
+    $("#about").load("/about");
+
     $("#publishButton").click(function(event) {
         var code = editor.getCode();
         // better trim() function than JQuery's
@@ -87,4 +93,6 @@ $(document).ready(function() {
 	    .ajaxStop(function() {
 	        $(this).hide();
 	    });
+
+    
 });

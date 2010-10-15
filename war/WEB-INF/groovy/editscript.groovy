@@ -1,0 +1,1 @@
+out << new File("index.html").text

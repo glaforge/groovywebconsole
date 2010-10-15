@@ -6,7 +6,7 @@ try {
         def id = Long.parseLong(params.id)
         def key = KeyFactory.createKey("savedscript", id)
         Entity entity = datastore.get(key)
-        println entity.script.value
+        out << entity.script.value
     }
 } catch (Throwable t) {
     t.printStackTrace()
