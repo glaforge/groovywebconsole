@@ -1,4 +1,5 @@
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
+import org.codehaus.groovy.tools.RootLoader
 import com.google.apphosting.api.ApiProxy
 
 def scriptText = params.script ?: "'The received script was null.'"
@@ -10,7 +11,7 @@ def printStream = new PrintStream(stream, true, encoding)
 def stacktrace = new StringWriter()
 def errWriter = new PrintWriter(stacktrace)
 
-def binding = new Binding([out: printStream])
+def aBinding = new Binding([out: printStream])
 
 def originalOut = System.out
 def originalErr = System.err
@@ -22,7 +23,7 @@ def env = ApiProxy.currentEnvironment
 ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
-	result = new GroovyShell(binding).evaluate(scriptText)
+	result = new GroovyShell(aBinding).evaluate(scriptText)
 } catch (MultipleCompilationErrorsException e) {
 	stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
 } catch (Throwable t) {
@@ -47,7 +48,7 @@ out.println """{
 }"""
 
 def escape(object) {
-	object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/)
+    object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/) : ""
 }
 
 def sanitizeStacktrace(t) {
