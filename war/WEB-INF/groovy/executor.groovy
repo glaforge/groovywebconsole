@@ -13,6 +13,13 @@ def errWriter = new PrintWriter(stacktrace)
 
 def aBinding = new Binding([out: printStream])
 
+def emcEvents = []
+def listener = { MetaClassRegistryChangeEvent event ->
+    emcEvents << event
+} as MetaClassRegistryChangeEventListener
+
+GroovySystem.metaClassRegistry.addMetaClassRegistryChangeEventListener listener
+
 def originalOut = System.out
 def originalErr = System.err
 
@@ -37,6 +44,11 @@ try {
     ApiProxy.setEnvironmentForCurrentThread(env)
     System.setOut(originalOut)
     System.setErr(originalErr)
+
+    GroovySystem.metaClassRegistry.removeMetaClassRegistryChangeEventListener listener
+    emcEvents.each { MetaClassRegistryChangeEvent event ->
+        GroovySystem.metaClassRegistry.removeMetaClass event.clazz
+    }
 }
 
 response.contentType = "application/json"
