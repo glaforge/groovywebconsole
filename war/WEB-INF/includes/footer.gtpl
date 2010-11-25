@@ -6,6 +6,7 @@
     </ul>
     <h2>About this site:</h2>
     <ul>
+        <p>The Groovy Web Console is a website for sharing and executing Groovy programming snippets of code!</p>
         <li>Application deployed on <a href="http://code.google.com/appengine">Google App Engine</a></li>
         <li>Developed with the <a href="http://gaelyk.appspot.com">Gaelyk</a> lightweigh Groovy toolkit for Google App Engine</li>
         <li>Programmed with <a href="http://groovy.codehaus.org">Groovy</a>, version ${GroovySystem.version}</li>
