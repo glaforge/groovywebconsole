@@ -1,5 +1,6 @@
 get "/script/@id",      forward: "/view.groovy?id=@id",         validate: { id ==~ /\d+/ }, cache: 24.hours
 get "/edit/@id",        forward: "/editscript.groovy?id=@id",   validate: { id ==~ /\d+/ }
+get "/raw/@id",			forward: "/loadscript.groovy?id=@id",   validate: { id ==~ /\d+/ }
 
 get "/author/@author",  forward: "/recentscripts.gtpl?author=@author&limit=100",            cache: 5.seconds
 

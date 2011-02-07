@@ -29,7 +29,7 @@
 
                 var scriptId = parseInt(window.location.href.substring(window.location.href.lastIndexOf('/') + 1));
                 if (!isNaN(scriptId)) {
-                    jQuery("#script").load("/loadscript.groovy?id=" + scriptId, function(text) {
+                    jQuery("#script").load("/raw/" + scriptId, function(text) {
                         editor.setCode(text);
                     });
                 }
