@@ -1,7 +1,4 @@
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
-import org.codehaus.groovy.tools.RootLoader
-
-import groovy.json.JsonBuilder
 
 import com.google.apphosting.api.ApiProxy
 
@@ -55,25 +52,12 @@ try {
 }
 
 response.contentType = "application/json"
-/*
+
 out.println """{
 	executionResult: "${escape(result)}",
  	outputText: "${escape(stream.toString(encoding))}",
  	stacktraceText: "${escape(stacktrace)}"
 }"""
-*/
-
-System.out.println stacktrace
-
-def json = new JsonBuilder()
-json {
-	executionResult result
-	outputText stream.toString(encoding)
-	stacktraceText stacktrace.toString()
-}
-
-System.out.println json.toString()
-out.println json.toString()
 
 def escape(object) {
     object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/) : ""
