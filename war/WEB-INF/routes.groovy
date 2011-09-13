@@ -1,16 +1,19 @@
-get "/script/@id",      forward: "/view.groovy?id=@id",         validate: { id ==~ /\d+/ }, cache: 24.hours
+def longPeriod = localMode ? 0 : 24.hours
+def shortPeriod = localMode ? 0 : 1.hour
+
+get "/script/@id",      forward: "/view.groovy?id=@id",         validate: { id ==~ /\d+/ }, cache: longPeriod
 get "/edit/@id",        forward: "/editscript.groovy?id=@id",   validate: { id ==~ /\d+/ }
 get "/raw/@id",			forward: "/loadscript.groovy?id=@id",   validate: { id ==~ /\d+/ }
 
-get "/author/@author",  forward: "/recentscripts.gtpl?author=@author&limit=100",            cache: 5.seconds
+get "/author/@author",  forward: "/recentscripts.gtpl?author=@author&limit=100",            cache: shortPeriod
 
-get "/tag/@tag",        forward: "/recentscripts.gtpl?tag=@tag&limit=100",                  cache: 5.seconds
+get "/tag/@tag",        forward: "/recentscripts.gtpl?tag=@tag&limit=100",                  cache: shortPeriod
 
-get "/scripts",         forward: "/recentscripts.gtpl?limit=100",                           cache: 5.seconds
-get "/scripts/@limit",  forward: "/recentscripts.gtpl?limit=@limit",                        cache: 5.seconds
+get "/scripts",         forward: "/recentscripts.gtpl?limit=100",                           cache: shortPeriod
+get "/scripts/@limit",  forward: "/recentscripts.gtpl?limit=@limit",                        cache: shortPeriod
 
-get "/badcaptcha",      forward: "/badcaptcha.gtpl",                                        cache: 24.hours
+get "/badcaptcha",      forward: "/badcaptcha.gtpl",                                        cache: longPeriod
 
-get "/nosuchscript",    forward: "/nosuchscript.gtpl",                                      cache: 24.hours
+get "/nosuchscript",    forward: "/nosuchscript.gtpl",                                      cache: longPeriod
 
-get "/about",           forward: "/WEB-INF/includes/about.gtpl",                            cache: 5.seconds
+get "/about",           forward: "/WEB-INF/includes/about.gtpl",                            cache: shortPeriod

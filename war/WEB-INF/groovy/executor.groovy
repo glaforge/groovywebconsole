@@ -54,13 +54,13 @@ try {
 response.contentType = "application/json"
 
 out.println """{
-	executionResult: "${escape(result)}",
- 	outputText: "${escape(stream.toString(encoding))}",
- 	stacktraceText: "${escape(stacktrace)}"
+	"executionResult": "${escape(result)}",
+	"outputText": "${escape(stream.toString(encoding))}",
+	"stacktraceText": "${escape(stacktrace)}"
 }"""
 
 def escape(object) {
-    object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/) : ""
+    object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/).replaceAll('\\\\\\\\"', '\\\\\\\\\\\\"') : ""
 }
 
 def sanitizeStacktrace(t) {

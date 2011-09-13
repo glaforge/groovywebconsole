@@ -1,10 +1,10 @@
 <html>
     <head>
         <%
-            def entity = request.getAttribute('entity')
+            def script = request.script
         %>
 
-        <title>Groovy web console - ${entity?.title ?: 'Untitled script'}</title>
+        <title>Groovy web console - ${script?.title ?: 'Untitled script'}</title>
 
         <link rel="alternate"
                 type="application/atom+xml"
@@ -65,8 +65,8 @@
                     </td>
 
                     <td>
-                        <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/script/${entity.key.id}');">
-                            <span style="display:none;">${entity.title} (via #groovywebconsole)</span>
+                        <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/script/${script.key.id}');">
+                            <span style="display:none;">${script.title} (via #groovywebconsole)</span>
                             <table>
                                 <tr>
                                     <td><img src="/images/twitter.png" alt="tweet this snippet" align="left" border="0"></td>
@@ -82,7 +82,7 @@
                 <textarea cols="55" rows="14">
 &lt;script&gt;
     // The ID of this script
-    gc_id = ${entity.key.id};
+    gc_id = ${script.key.id};
 
     // The iframe's width
     gc_width = 300;
@@ -97,27 +97,27 @@
             </div>
         </div>
 
-        <h2>${entity?.title ?: 'Untitled script'}</h2>
+        <h2>${script?.title ?: 'Untitled script'}</h2>
         <div id="publishedby">
             <img src="/images/date.png" align="top">
-            Published ${new com.ocpsoft.pretty.time.PrettyTime().format(entity.dateCreated)}
+            Published ${new com.ocpsoft.pretty.time.PrettyTime().format(script.dateCreated)}
             by
             <%
-                if (entity.author && entity.author != 'Anonymous') {
+                if (script.author && script.author != 'Anonymous') {
             %>
                 <img src="/images/user.png" align="top">
-                <a href="/author/${entity.author}">${entity.author}</a>
+                <a href="/author/${script.author}">${script.author}</a>
             <%
                 } else {
             %>
                 Anonymous
             <%
                 }
-                if (entity?.tags?.join()) {
+                if (script?.tags?.join()) {
             %>
                 with tags
             <%
-                    entity.tags.each { tag ->
+                    script.tags.each { tag ->
             %>
                 <img src="/images/tag_blue.png" align="top">
                 <a href="/tag/${tag}">${tag}</a>
@@ -129,18 +129,18 @@
 
         <div id="actionsBreadcrumb">
             <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
-            <span class="actionsBreadcrumbChild"><a href="/edit/${entity.key.id}">Edit in console</a></span>
+            <span class="actionsBreadcrumbChild"><a href="/edit/${script.key.id}">Edit in console</a></span>
             <span class="actionsBreadcrumbChild"><a href="/">Back to console</a></span>
             <span class="actionsBreadcrumbChild" id="toggleLineNumbers"><a href="javascript:void(0)">Show/hide line numbers</a></span>
             <span class="actionsBreadcrumbLastChild"><a href="/scripts">View recent scripts</a></span>
         </div>
 
-        <pre class="brush:groovy">${entity.script.value.replaceAll('<', '&lt;')}</pre>
+        <pre class="brush:groovy">${script.script.replaceAll('<', '&lt;')}</pre>
 
         <div id="commentsArea">
             <script>
                 var idcomments_acct = 'ffac2056f3a0f603b8799858d3af8299';
-                var idcomments_post_id = 'http://groovyconsole.appspot.com/view.groovy?id=${entity.key.id}';
+                var idcomments_post_id = 'http://groovyconsole.appspot.com/view.groovy?id=${script.key.id}';
                 var idcomments_post_url;
                 </script>
                 <span id="IDCommentsPostTitle" style="display:none"></span>
