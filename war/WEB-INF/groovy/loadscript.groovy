@@ -1,12 +1,11 @@
 import com.google.appengine.api.datastore.Entity
-import com.google.appengine.api.datastore.KeyFactory
 
 try {
     if (params.id) {
         def id = Long.parseLong(params.id)
-        def key = KeyFactory.createKey("savedscript", id)
-        Entity entity = datastore.get(key)
-        out << entity.script.value
+        Entity entity = datastore.get("savedscript", id)
+        out << entity.script
+        out.flush()
     }
 } catch (Throwable t) {
     t.printStackTrace()
