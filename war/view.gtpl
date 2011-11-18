@@ -54,17 +54,6 @@
                         </a>
                     </td>
                     <td>
-                        <a id="embedLink" href="#">
-                            <table>
-                                <tr>
-                                    <td><img src="/images/puzzle.png" alt="embed in your blog" align="left" border="0"></td>
-                                    <td><i>Embed<br/>this<br/>script</i></td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-
-                    <td>
                         <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/script/${script.key.id}');">
                             <span style="display:none;">${script.title} (via #groovywebconsole)</span>
                             <table>
@@ -77,24 +66,6 @@
                     </td>
                 </tr>
             </table>
-            <div id="embedText" title="Embed this script">
-                <p>To embed this script in your site, just drop the content below where you want to embed it.</p>
-                <textarea cols="55" rows="14">
-&lt;script&gt;
-    // The ID of this script
-    gc_id = ${script.key.id};
-
-    // The iframe's width
-    gc_width = 300;
-
-    // The iframe's height
-    gc_height = 100;
-&lt;/script&gt;
-&lt;script language="javascript"
-             src="http://groovyconsole.appspot.com/js/embed.js"&gt;
-&lt;/script&gt;
-                </textarea>
-            </div>
         </div>
 
         <h2>${script?.title ?: 'Untitled script'}</h2>
@@ -146,7 +117,5 @@
                 <span id="IDCommentsPostTitle" style="display:none"></span>
             <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
         </div>
-
-        <% include '/WEB-INF/includes/about.gtpl' %>
     </body>
 </html>

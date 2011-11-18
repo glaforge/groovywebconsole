@@ -1,5 +1,4 @@
 import com.google.appengine.api.datastore.Entity
-import com.google.appengine.api.datastore.Text
 
 def captchaTestPassed = false
 try {
@@ -13,12 +12,14 @@ try {
 
 if (captchaTestPassed) {
     def entity = new Entity("savedscript")
-    entity.script = new Text(params.script)
+    entity.unindexed.script = params.script
     entity.title = params.title ?: "Untitled"
     entity.author = params.author ?: "Anonymous"
     entity.dateCreated = new Date()
     entity.tags = params.tags ? params.tags?.split(',')*.trim() : []
     entity.save()
+
+    memcache.recentScripts = null
 
     request['entity'] = entity
 

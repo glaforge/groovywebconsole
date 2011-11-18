@@ -60,7 +60,7 @@ out.println """{
 }"""
 
 def escape(object) {
-    object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/"/, /\\"/).replaceAll('\\\\\\\\"', '\\\\\\\\\\\\"') : ""
+    object ? object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/\t/, /\\\t/).replaceAll(/"/, /\\"/) : ""
 }
 
 def sanitizeStacktrace(t) {

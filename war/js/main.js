@@ -28,8 +28,6 @@ $(document).ready(function() {
         $("#dialogCaptchaQuestion").val(responseText);
     });
 
-    $("#about").load("/about");
-
     $("#publishButton").click(function(event) {
         var code = editor.getCode();
         // better trim() function than JQuery's
@@ -52,11 +50,17 @@ $(document).ready(function() {
                 if (status === 'error' || !xhr.responseText) {
                     alert("Error interacting with the Groovy web console server: " + status);
                 } else {
-                    var data = $.parseJSON(xhr.responseText);
+                    var data;
+                    try {
+                        data = $.parseJSON(xhr.responseText);
+                    } catch (e) {
+                        alert("Impossible to parse JSON response: " + e);
+                        data = {executionResult: "", outputText: "", stacktraceText: ""};
+                    }
 
-                    $('#output').text("");
-                    $('#result').text("");
-                    $('#stacktrace').text("");
+                    $('#output').text(data.outputText);
+                    $('#result').text(data.executionResult);
+                    $('#stacktrace').text(data.stacktraceText);
 
                     if (data.outputText.length > 0) {
                         $("#tabs").tabs('select', 1);

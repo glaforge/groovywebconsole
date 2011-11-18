@@ -40,12 +40,6 @@
             <% } %>
         </div>
 
-        <div class="indent">
-            <% include "/recentscripts.groovy" %>
-        </div>
-        <% include "/recenttagsandauthors.groovy" %>
-
-        <% include "/WEB-INF/includes/footer.gtpl" %>
-
+        <% include "/recentscripts.groovy" %>
     </body>
 </html>

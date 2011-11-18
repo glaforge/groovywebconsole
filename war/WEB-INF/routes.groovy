@@ -16,4 +16,3 @@ get "/badcaptcha",      forward: "/badcaptcha.gtpl",                            
 
 get "/nosuchscript",    forward: "/nosuchscript.gtpl",                                      cache: longPeriod
 
-get "/about",           forward: "/WEB-INF/includes/about.gtpl",                            cache: shortPeriod

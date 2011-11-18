@@ -108,22 +108,12 @@ pre {
     display: none;
 }
 
-#recentScripts {
-    float: left;
-    width: 55%;
-    font-family: Arial, sans-serif;
-    font-size: small;
-    color: gray;
-}
-
 #viewAllScripts, #commentsArea {
     margin-left: 20px;
 }
 
-#footer {
-    position: absolute;
-    right: 20px;
-    width: 45%;
+#about {
+    font-family: Arial, sans-serif;
     font-size: small;
     color: gray;
 }

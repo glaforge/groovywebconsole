@@ -1,5 +1,4 @@
 import com.google.appengine.api.datastore.Entity
-import com.google.appengine.api.datastore.KeyFactory
 
 if (params.id) {
     def id = Long.parseLong(params['id'])

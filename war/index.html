@@ -8,7 +8,7 @@
                 title="Groovy Web Console snippets atom feed"
         />
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js" type="text/javascript"></script>
+        <script src="/js/jquery-1.6.4.min.js" type="text/javascript"></script>
 
         <script language="javascript">
             var editor;
@@ -126,7 +126,23 @@
             </div>
         </div>
 
-        <div id="about"></div>
+        <div id="about">
+            <h2>Console tips</h2>
+            <ul>
+                <li>You can hit Alt-Meta-R to execute the current script without using the execute button.</li>
+                <li>You can resize the script view by sliding down the bottom of the line number gutter.</li>
+            </ul>
+            <h2>About this site:</h2>
+            <ul>
+                <p>The Groovy Web Console is a website for sharing and executing Groovy programming snippets of code!</p>
+                <li>Application deployed on <a href="http://code.google.com/appengine">Google App Engine</a></li>
+                <li>Developed with the <a href="http://gaelyk.appspot.com">Gaelyk</a> lightweigh Groovy toolkit for Google App Engine</li>
+                <li>Programmed with <a href="http://groovy.codehaus.org">Groovy</a></li>
+                <li>Code hosted on <a href="http://github.com/glaforge/groovywebconsole/tree/master">GitHub</a> and managed with Git</li>
+                <li>Live syntax highlighting provided by <a href="http://marijn.haverbeke.nl/codemirror/">CodeMirror</a></li>
+                <li>Syntax highlighting for sharing provided by <a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter">SyntaxHighlighter</a></li>
+            </ul>
+        </div>
 
         <script src="/js/codemirror.js" type="text/javascript"></script>
         <script src="/js/mirrorframe.js" type="text/javascript"></script>
