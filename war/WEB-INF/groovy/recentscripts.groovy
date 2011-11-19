@@ -5,7 +5,7 @@ def recentScriptsInCache = memcache.recentScripts
 def entities = recentScriptsInCache ?: datastore.execute {
     select all from savedscript
     sort desc by dateCreated
-    limit 1000
+    limit params.limit?.toInteger() ?: 200
 }
 if (!recentScriptsInCache) memcache.recentScripts = entities
 
