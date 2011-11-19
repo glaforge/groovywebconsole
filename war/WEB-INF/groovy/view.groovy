@@ -4,7 +4,10 @@ if (params.id) {
     def id = Long.parseLong(params['id'])
 
     try {
-        Entity script = datastore.get("savedscript", id)
+        def savedscript = memcache["savedscript-$id"]
+        Entity script = savedscript ?: datastore.get("savedscript", id)
+        if (!savedscript) memcache["savedscript-$id"] = script
+
         request.script = script
 		forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
     } catch (Throwable t) {
