@@ -30,16 +30,16 @@ def env = ApiProxy.currentEnvironment
 ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
-	result = new GroovyShell(aBinding).evaluate(scriptText)
+    result = new GroovyShell(aBinding).evaluate(scriptText)
 } catch (MultipleCompilationErrorsException e) {
-	stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
+    stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
 } catch (Throwable t) {
-	sanitizeStacktrace(t)
-	def cause = t
-	while (cause = cause?.cause) {
-		sanitizeStacktrace(cause)
-	}
-	t.printStackTrace(errWriter)
+    sanitizeStacktrace(t)
+    def cause = t
+    while (cause = cause?.cause) {
+        sanitizeStacktrace(cause)
+    }
+    t.printStackTrace(errWriter)
 } finally {
     ApiProxy.setEnvironmentForCurrentThread(env)
     System.setOut(originalOut)
@@ -54,9 +54,9 @@ try {
 response.contentType = "application/json"
 
 out.println """{
-	"executionResult": "${escape(result)}",
-	"outputText": "${escape(stream.toString(encoding))}",
-	"stacktraceText": "${escape(stacktrace)}"
+    "executionResult": "${escape(result)}",
+    "outputText": "${escape(stream.toString(encoding))}",
+    "stacktraceText": "${escape(stacktrace)}"
 }"""
 
 def escape(object) {
@@ -65,14 +65,14 @@ def escape(object) {
 
 def sanitizeStacktrace(t) {
     def filtered = [
-        'com.google.', 'org.mortbay.',
-        'java.', 'javax.', 'sun.', 
-        'groovy.', 'org.codehaus.groovy.',
-        'groovyx.gaelyk.', 'executor'
-	]
+            'com.google.', 'org.mortbay.',
+            'java.', 'javax.', 'sun.',
+            'groovy.', 'org.codehaus.groovy.',
+            'groovyx.gaelyk.', 'executor'
+    ]
     def trace = t.stackTrace
     def newTrace = []
-    trace.each { stackTraceElement -> 
+    trace.each { stackTraceElement ->
         if (filtered.every { !stackTraceElement.className.startsWith(it) }) {
             newTrace << stackTraceElement
         }
