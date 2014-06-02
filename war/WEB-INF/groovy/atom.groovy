@@ -42,9 +42,7 @@ builder.feed(xmlns: "http://www.w3.org/2005/Atom") {
                 name authorText
             }
             content(type: 'html') {
-                pre {
-                    mkp.yield entity.script
-                }
+                mkp.yield "<pre>${entity.script}</pre>"
             }
         }
     }
