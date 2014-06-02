@@ -42,7 +42,7 @@ builder.feed(xmlns: "http://www.w3.org/2005/Atom") {
                 name authorText
             }
             content(type: 'html') {
-                mkp.yield "<pre>${entity.script}</pre>"
+                mkp.yieldUnescaped "<![CDATA[${entity.script}]]>"
             }
         }
     }
