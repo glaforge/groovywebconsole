@@ -38,7 +38,7 @@ var tokenizeJavaScript = (function() {
     return {
       "if": keywordA, "while": keywordA, "with": keywordA, "import": keywordA, "static": keywordA, "assert": keywordA, "throws": keywordA,
 	  "public": keywordA, "private": keywordA, "protected": keywordA, "final": keywordA,
-	  "class": keywordA, "extends": keywordA, "implements": keywordA, "void": keywordA, "super": keywordA, "this": keywordA,
+	  "trait": keywordA, "class": keywordA, "extends": keywordA, "implements": keywordA, "void": keywordA, "super": keywordA, "this": keywordA,
 	  "int": keywordA, "boolean": keywordA, "float": keywordA, "double": keywordA, "long": keywordA, "byte": keywordA, "short": keywordA, "byte": keywordA,
       "else": keywordB, "try": keywordB, "finally": keywordB,
       "return": keywordC, "break": keywordC, "continue": keywordC, "new": keywordC, "throw": keywordC,
