@@ -19,10 +19,10 @@ def builder = new MarkupBuilder(out)
 //builder.yieldUnescaped '''<?xml version="1.0" encoding="utf-8"?>'''
 
 builder.feed(xmlns: "http://www.w3.org/2005/Atom") {
-    id "http://groovyconsole.appspot.com"
+    id "http://groovyconsole.appspot.com/"
     title "Groovy Web Console for the Groovy Programming Language"
     subtitle "Sharing Groovy programming language snippets, one script at a time"
-    link href: "http://groovyconsole.appspot.com", rel: "self"
+    link href: "http://groovyconsole.appspot.com/", rel: "self"
     updated isoTime.format(entities[0].dateCreated)
     author {
         name "Guillaume Laforge"
