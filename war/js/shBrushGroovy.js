@@ -34,7 +34,7 @@ SyntaxHighlighter.brushes.Groovy = function()
 
 	var keywords =	'as assert break case catch class continue def default do else extends finally for ' +
 					'if in implements import instanceof interface new package property return switch ' +
-					'throw throws try while public protected private static';
+					'throw throws trait try while public protected private static';
 	var types    =  'void boolean byte char short int long float double';
 	var constants = 'null';
 	var methods   = 'allProperties count get size '+
@@ -42,7 +42,7 @@ SyntaxHighlighter.brushes.Groovy = function()
 					'findIndexOf grep inject max min reverseEach sort ' +
 					'asImmutable asSynchronized flatten intersect join pop reverse subMap toList ' +
 					'padRight padLeft contains eachMatch toCharacter toLong toUrl tokenize ' +
-					'eachFile eachFileRecurse eachB yte eachLine readBytes readLine getText ' +
+					'eachFile eachFileRecurse eachByte eachLine readBytes readLine getText ' +
 					'splitEachLine withReader append encodeBase64 decodeBase64 filterLine ' +
 					'transformChar transformLine withOutputStream withPrintWriter withStream ' +
 					'withStreams withWriter withWriterAppend write writeLine '+
