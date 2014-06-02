@@ -41,8 +41,12 @@ builder.feed(xmlns: "http://www.w3.org/2005/Atom") {
             author {
                 name authorText
             }
-            content(type: 'html') {
-                mkp.yieldUnescaped "<![CDATA[${entity.script}]]>"
+            content(type: 'xhtml') {
+                div(xmlns: "http://www.w3.org/1999/xhtml") {
+                    pre {
+                        mkp.yieldUnescaped "<![CDATA[${entity.script}]]>"
+                    }
+                }
             }
         }
     }
