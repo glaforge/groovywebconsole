@@ -18,7 +18,7 @@
         <link type="text/css" rel="stylesheet" href="/css/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="/css/shThemeDefault.css"/>
 
-        <script src="/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+        <script src="/js/jquery-1.6.4.min.js" type="text/javascript"></script>
         <script src="/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
 
         <script language="javascript" src="/js/shCore.js"></script>
