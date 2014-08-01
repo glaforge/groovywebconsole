@@ -26,9 +26,9 @@
         <script language="javascript" src="/js/shBrushXml.js"></script>
 
         <script type="text/javascript">
-        	SyntaxHighlighter.config.clipboardSwf = '/flash/clipboard.swf';
-        	SyntaxHighlighter.defaults['gutter'] = false;
-        	SyntaxHighlighter.all();
+            SyntaxHighlighter.config.clipboardSwf = '/flash/clipboard.swf';
+            SyntaxHighlighter.defaults['gutter'] = false;
+            SyntaxHighlighter.all();
         </script>
 
         <script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=glaforge&apiKey=R_c6e14f0ec7fd7c31296c8d394cfbe929"></script>
