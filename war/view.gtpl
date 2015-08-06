@@ -71,7 +71,7 @@
         <h2>${script?.title ?: 'Untitled script'}</h2>
         <div id="publishedby">
             <img src="/images/date.png" align="top">
-            Published ${new com.ocpsoft.pretty.time.PrettyTime().format(script.dateCreated)}
+            Published ${new org.ocpsoft.prettytime.PrettyTime().format(script.dateCreated)}
             by
             <%
                 if (script.author && script.author != 'Anonymous') {
