@@ -26,7 +26,7 @@
                 <span class="gwcTitle">${entity.title ?: 'Untitled'}</span>
                 <span class="gwcPublished">
                     <img src="/images/date.png" align="top">
-                    Published ${new com.ocpsoft.pretty.time.PrettyTime().format(entity.dateCreated)}
+                    Published ${new org.ocpsoft.prettytime.PrettyTime().format(entity.dateCreated)}
                     on the <a href="http://groovyconsole.appspot.com/script/${entity.key.id}">Groovy Web Console</a>
                 </span>
                 <span class="gwcAuthor">

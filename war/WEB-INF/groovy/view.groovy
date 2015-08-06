@@ -1,6 +1,7 @@
 import com.google.appengine.api.datastore.Entity
 
 if (params.id) {
+    log.info "Params: $params.id"
     def id = Long.parseLong(params['id'])
 
     try {
@@ -11,8 +12,11 @@ if (params.id) {
         request.script = script
         forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
     } catch (Throwable t) {
+        log.info t.message
+        t.printStackTrace()
         forward 'nosuchscript.gtpl'
     }
 } else {
+    log.info "No params.id = $params.id"
     forward 'nosuchscript.gtpl'
 }
