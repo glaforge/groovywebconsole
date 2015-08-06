@@ -9,7 +9,7 @@ if (params.id) {
         if (!savedscript) memcache["savedscript-$id"] = script
 
         request.script = script
-		forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
+        forward params['embed'] ? 'embed.gtpl' : 'view.gtpl'
     } catch (Throwable t) {
         forward 'nosuchscript.gtpl'
     }

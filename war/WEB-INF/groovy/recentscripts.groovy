@@ -1,5 +1,5 @@
 import com.google.appengine.api.datastore.Entity
-import com.ocpsoft.pretty.time.PrettyTime
+import org.ocpsoft.prettytime.PrettyTime
 
 def recentScriptsInCache = memcache.recentScripts
 def entities = recentScriptsInCache ?: datastore.execute {
