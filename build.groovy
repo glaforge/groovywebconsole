@@ -8,7 +8,7 @@ def ant = new AntBuilder().sequential {
             }
             pathelement path: "${webinf}/classes"
         }
-        javac source: "1.7", target: "1.7", debug: "on"
+        javac source: "1.8", target: "1.8", debug: "on"
     }
 }
 

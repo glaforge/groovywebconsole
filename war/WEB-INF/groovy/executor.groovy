@@ -1,4 +1,6 @@
+import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
+import groovy.json.*
 
 import com.google.apphosting.api.ApiProxy
 
@@ -34,6 +36,7 @@ try {
 } catch (MultipleCompilationErrorsException e) {
     stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
 } catch (Throwable t) {
+    log.info("User stacktrace:\n${t}")
     sanitizeStacktrace(t)
     def cause = t
     while (cause = cause?.cause) {
@@ -70,7 +73,7 @@ def escape(object) {
     } else if (object == 0) {
       "0"
     } else if (object == "") {
-      "\"\""
+      "''"
     } else if (object == []) {
       "[]"
     } else if (object == [:]) {
@@ -78,10 +81,11 @@ def escape(object) {
     } else {
       "N/A"
     }
+}
 
 def sanitizeStacktrace(t) {
     def filtered = [
-            'com.google.', 'org.mortbay.',
+            'com.google.', 'org.eclipse.',
             'java.', 'javax.', 'sun.',
             'groovy.', 'org.codehaus.groovy.',
             'groovyx.gaelyk.', 'executor'

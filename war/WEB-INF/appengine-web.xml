@@ -1,9 +1,11 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>groovyconsole-hrd</application>
 
-    <version>244</version>
+    <version>groovy257</version>
     
     <threadsafe>true</threadsafe>
+
+    <runtime>java8</runtime>
 
     <!-- If all your templates and groovlets are encoding in UTF-8 -->
     <!-- Please specify the settings below, otherwise weird characters may appear in your templates -->

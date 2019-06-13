@@ -1,5 +1,5 @@
-def longPeriod = localMode ? 0 : 24.hours
-def shortPeriod = localMode ? 0 : 1.hour
+def longPeriod = localMode ? 0 : 1.hour
+def shortPeriod = localMode ? 0 : 1.minute
 
 get "/script/@id",      forward: "/view.groovy?id=@id",         validate: { id ==~ /\d+/ }, cache: longPeriod
 get "/script/@id/",     forward: "/view.groovy?id=@id",         validate: { id ==~ /\d+/ }, cache: longPeriod
