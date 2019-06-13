@@ -30,9 +30,6 @@
             SyntaxHighlighter.defaults['gutter'] = false;
             SyntaxHighlighter.all();
         </script>
-
-        <script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=glaforge&apiKey=R_c6e14f0ec7fd7c31296c8d394cfbe929"></script>
-        <script type="text/javascript" charset="utf-8" src="http://s.bit.ly/TweetAndTrack.js?v=1.01"></script>
     </head>
 
     <body>
@@ -49,17 +46,6 @@
                                 <tr>
                                     <td><img src="/images/atom-feed.png" alt="subscribe to the feed" align="left" border="0"></td>
                                     <td><i>Subscribe<br/>to this<br/>site</i></td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#" onclick="return TweetAndTrack.open(this, 'http://groovyconsole.appspot.com/script/${script.key.id}');">
-                            <span style="display:none;">${script.title} (via #groovywebconsole)</span>
-                            <table>
-                                <tr>
-                                    <td><img src="/images/twitter.png" alt="tweet this snippet" align="left" border="0"></td>
-                                    <td><i>Tweet<br/>this<br/>script</i></td>
                                 </tr>
                             </table>
                         </a>

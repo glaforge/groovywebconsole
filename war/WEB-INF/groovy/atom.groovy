@@ -34,9 +34,9 @@ builder.feed(xmlns: "http://www.w3.org/2005/Atom") {
         def authorText = entity.author && entity.author != 'Anonymous' ? entity.author : 'Anonymous'
         def titleText = entity.title ?: 'Untitled'
         entry {
-            id "http://groovyconsole.appspot.com/script/${entity.key.id}"
+            id "https://groovyconsole.appspot.com/script/${entity.key.id}"
             title titleText
-            link href: "http://groovyconsole.appspot.com/script/${entity.key.id}"
+            link href: "https://groovyconsole.appspot.com/script/${entity.key.id}"
             updated isoTime.format(entity.dateCreated)
             author {
                 name authorText

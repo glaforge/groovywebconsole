@@ -34,7 +34,7 @@ def result = ""
 try {
     result = new GroovyShell(aBinding).evaluate(scriptText)
 } catch (MultipleCompilationErrorsException e) {
-    stacktrace.append(e.message - 'startup failed, Script1.groovy: ')
+    stacktrace.append(e.message - 'startup failed:\nScript1.groovy: 1: ')
 } catch (Throwable t) {
     log.info("User stacktrace:\n${t}")
     sanitizeStacktrace(t)
@@ -56,32 +56,11 @@ try {
 
 response.contentType = "application/json"
 
-out.println """{
-    "executionResult": "${escape(result)}",
-    "outputText": "${escape(stream.toString(encoding))}",
-    "stacktraceText": "${escape(stacktrace)}"
-}"""
-
-def escape(object) {
-    if (object) {
-      object.toString().replaceAll(/\n/, /\\\n/).replaceAll(/\t/, /\\\t/).replaceAll(/"/, /\\"/)
-      // Need to explicitly check for value to display to user so that user knows what type of falsey value it is
-    } else if (object == false) {
-      "false"
-    } else if (object == null) {
-      "null"
-    } else if (object == 0) {
-      "0"
-    } else if (object == "") {
-      "''"
-    } else if (object == []) {
-      "[]"
-    } else if (object == [:]) {
-      "[:]"
-    } else {
-      "N/A"
-    }
-}
+out.println JsonOutput.toJson([
+    "executionResult": "${result}",
+    "outputText": "${stream.toString(encoding)}",
+    "stacktraceText": "${stacktrace}"
+])
 
 def sanitizeStacktrace(t) {
     def filtered = [
