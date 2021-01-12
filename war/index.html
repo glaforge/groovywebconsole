@@ -31,6 +31,11 @@
                 if (!isNaN(scriptId)) {
                     jQuery("#script").load("/raw/" + scriptId, function(text) {
                         editor.setCode(text);
+
+                        var params = (new URL(document.location)).searchParams;
+                        if(params.has("execute")) {
+                            executeScript();
+                        }
                     });
                 }
             });

@@ -86,6 +86,7 @@
 
         <div id="actionsBreadcrumb">
             <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
+            <span class="actionsBreadcrumbChild"><a href="/edit/${script.key.id}?execute">Execute script</a></span>
             <span class="actionsBreadcrumbChild"><a href="/edit/${script.key.id}">Edit in console</a></span>
             <span class="actionsBreadcrumbChild"><a href="/">Back to console</a></span>
             <span class="actionsBreadcrumbChild" id="toggleLineNumbers"><a href="javascript:void(0)">Show/hide line numbers</a></span>
