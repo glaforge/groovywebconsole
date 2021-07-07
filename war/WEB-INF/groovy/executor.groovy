@@ -32,8 +32,7 @@ def env = ApiProxy.currentEnvironment
 ApiProxy.clearEnvironmentForCurrentThread()
 def result = ""
 try {
-    log.info("Request from: ${request.remotePort} (IP: ${request.remoteAddr})")
-    log.info("Executing:\n${scriptText}")
+    log.info(scriptText)
     result = new GroovyShell(aBinding).evaluate(scriptText)
 } catch (MultipleCompilationErrorsException e) {
     stacktrace.append(e.message - 'startup failed:\nScript1.groovy: 1: ')
