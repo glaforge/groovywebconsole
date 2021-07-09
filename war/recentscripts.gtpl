@@ -33,7 +33,7 @@
         <h2>Recent scripts ${params.author ? "by " + params.author : ""} ${params.tag ? " with tag '" + params.tag + "'" : ""}</h2>
 
         <div id="actionsBreadcrumb">
-            <span class="actionsBreadcrumbHead">Actions &nbsp;&#x27A4;</span>
+            <span class="actionsBreadcrumbHead">Actions</span>
             <span class="actionsBreadcrumb${params.author || params.tag ? "" : "Last"}Child"><a href="/">Back to console</a></span>
             <% if (params.author || params.tag) { %>
             <span class="actionsBreadcrumbLastChild"><a href="/scripts">View all recent scripts</a></span>
